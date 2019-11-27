@@ -15,6 +15,13 @@ h1, h3, h2
     border-radius: 27px;
     margin:20px;
 }
+.coms-container {
+    background-color: rgb(236, 236, 236);
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    border-radius: 27px;
+    margin:20px;
+}
 
 .title
 {
@@ -30,6 +37,8 @@ h1, h3, h2
     background-color:#8E38FF;
     color: whitesmoke;
     margin:2px;
+    padding: 7px;
+    border-radius: 7px;
 }
 .news
 {
@@ -37,6 +46,20 @@ h1, h3, h2
     margin:auto;
     padding:5px;
 
+}
+.coms p
+{
+    background-color:rgb(245, 198, 43);
+    color: rgb(36, 36, 36);
+    margin:2px;
+    padding: 2px;
+    border-radius: 2px;
+}
+.coms
+{
+    width:70%;
+    margin:auto;
+    padding:2px;
 }
 
 a

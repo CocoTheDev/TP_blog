@@ -1,7 +1,23 @@
 
+<?php
 
 
+// Connexion à la base de données
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=TP_blog;charset=utf8', 'root', '');
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
 
+
+// Selection des éléments
+$reponse = $bdd->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,44 +39,32 @@
 <h2>Derniers billets du blog</h2><br>
 
 
+
+
+
 <?php
-
-
-// Connexion à la BDD
-$bdd = new PDO('mysql:host=localhost;dbname=TP_blog;charset=utf8', 'root', '');
-
-
-// Selection des éléments
-$reponse = $bdd->query("SELECT * FROM billets ORDER BY id DESC LIMIT 5");
-
-
-// Affichage des messages
-/* echo "<div class='col-8'>";
 if (isset($reponse)) {
-while ($donnees = $reponse->fetch()) {
-    echo "<p><b style='color: orange;'>" . $donnees['id'] . " : " . '</b>' . $donnees['contenu'] . '</p>';}}
-echo '</div>'; */
-
-
-
-
-if (isset($reponse)) {
-while ($donnees = $reponse->fetch()) {
+while ($data = $reponse->fetch()) {
 echo "
-<div class='col-8 center news-container'>
-    <h3 class='title'>". $donnees['titre']." | Le ". $donnees['date_creation'] . "</h3>
+    <div class='col-8 center news-container mt-5'>
+    <h3 class='title'>". $data['titre']." | Le ". $data['date_creation_fr'] . "</h3>
     <br>
     <div class='news'>
-            <p>". $donnees['contenu'] . "</p>
-            <a href='url'>Commentaires</a>    
+        <p>". $data['contenu'] . "</p>
+
+        <form methode='post' action='commentaires.php'>
+        <input type='hidden' name='id_billet' value=".$data['id'].">
+        <input type='submit' value='Commentaires'>
+        </form>
+        
     </div>
 </div>
 ";}}
 
+// On ferme la bdd
+$reponse->closeCursor();
+
 ?>
-
-
-
 
 
 
