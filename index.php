@@ -41,21 +41,23 @@ while ($donnees = $reponse->fetch()) {
     echo "<p><b style='color: orange;'>" . $donnees['id'] . " : " . '</b>' . $donnees['contenu'] . '</p>';}}
 echo '</div>'; */
 
-?>
 
 
 
-<div class="col-8 center news-container">
-    <h3 class="title">Le PHP à la conquète du monde !! Le 20.09.12 à 21h44min18s</h3>
+if (isset($reponse)) {
+while ($donnees = $reponse->fetch()) {
+echo "
+<div class='col-8 center news-container'>
+    <h3 class='title'>". $donnees['titre']." | Le ". $donnees['date_creation'] . "</h3>
     <br>
-    <div class="news">
-            <p>Voici le contenu du billet jnbsdcjbhksbsdnbfkdsnfknsdkfndsklnfdl</p>
-            <a href="url">Commentaires</a>    
+    <div class='news'>
+            <p>". $donnees['contenu'] . "</p>
+            <a href='url'>Commentaires</a>    
     </div>
 </div>
+";}}
 
-
-
+?>
 
 
 
