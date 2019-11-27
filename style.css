@@ -1,0 +1,46 @@
+h1, h3, h2
+{
+    text-align:center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.news-container {
+    background-color: #CCCCCC;
+    -webkit-border-radius: 27px;
+    -moz-border-radius: 27px;
+    border-radius: 27px;
+    margin:2px;
+}
+
+.title
+{
+    background-color:rgb(77, 77, 77);
+    color:whitesmoke;
+    font-size:0.9em;
+    margin:2px;
+    padding: 7px;
+    border-radius: 7px;
+}
+.news p
+{
+    background-color:#8E38FF;
+    color: whitesmoke;
+    margin:2px;
+}
+.news
+{
+    width:70%;
+    margin:auto;
+    padding:5px;
+
+}
+
+a
+{
+    text-decoration: none;
+    color: blue;
+}
